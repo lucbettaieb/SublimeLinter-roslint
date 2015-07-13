@@ -5,6 +5,7 @@ This linter plugin for [SublimeLinter][docs] provides an interface to [roslint](
 
 This is for ROS Indigo currently.  You should be able to modify the indigo string inside things to make it work with Jade or other ROS releases. 
 
+This plugin is very much in development!  Please file issues and make pull requests!
 ## Installation
 SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter 3 is not installed, please follow the instructions [here][installation].
 
