@@ -1,7 +1,7 @@
 SublimeLinter-roslint
 ================================
 
-This linter plugin for [SublimeLinter][docs] provides an interface to [roslint](__linter_homepage__). It will be used with files that have the “__syntax__” syntax.
+This linter plugin for [SublimeLinter][docs] provides an interface to [roslint](http://wiki.ros.org/roslint). It will be used with files that have the “C++” syntax.
 
 This is for ROS Indigo currently.  You should be able to modify the indigo string inside things to make it work with Jade or other ROS releases. 
 
