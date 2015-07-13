@@ -20,7 +20,9 @@ Before using this plugin, you must ensure that `roslint` is installed on your sy
    ```
    sudo apt-get install ros-indigo-roslint
    ```
-
+### Linter usage (this is an issue)
+Currently, roslint will only work if you launch sublime text from the command line.
+`subl file.cpp`
 
 ### Linter configuration
 In order for `roslint` to be executed by SublimeLinter, you must ensure that its path is available to SublimeLinter. Before going any further, please read and follow the steps in [“Finding a linter executable”](http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#finding-a-linter-executable) through “Validating your PATH” in the documentation.
