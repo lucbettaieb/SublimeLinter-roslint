@@ -10,14 +10,14 @@
 """This module exports the Roslint plugin class."""
 
 from SublimeLinter.lint import Linter, util
-
+import os
 
 class Roslint(Linter):
 
     """Provides an interface to roslint."""
-
+    distro = os.environ["ROS_DISTRO"]
     syntax = 'c++'
-    cmd = ('/opt/ros/indigo/lib/roslint/cpplint', '-', '@')
+    cmd = ('/opt/ros/'+distro+'/lib/roslint/cpplint', '-', '@')
     regex = r'^.+:(?P<line>\d+):\s+(?P<message>.+)'
     tempfile_suffix = '.cpp'
     # error_stream = util.STREAM_BOTH  # errors are on stderr
