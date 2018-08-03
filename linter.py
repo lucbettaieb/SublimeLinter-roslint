@@ -2,44 +2,23 @@
 # linter.py
 # Linter for SublimeLinter3, a code checking framework for Sublime Text 3
 #
-# Written by Luc Bettaieb, code modefied from NotSqrt
+# Authors: Luc Bettaieb, Carlos Asmat.
 #
 # License: MIT
 #
 
 """This module exports the Roslint plugin class."""
 
-from SublimeLinter.lint import Linter, util
+from SublimeLinter.lint import Linter, STREAM_STDERR
 import os
 
-class Roslint(Linter):
 
+class Roslint(Linter):
     """Provides an interface to roslint."""
     distro = os.environ["ROS_DISTRO"]
-    syntax = 'c++'
-    cmd = ('/opt/ros/'+distro+'/lib/roslint/cpplint', '-', '@')
-    regex = r'^.+:(?P<line>\d+):\s+(?P<message>.+)'
-    tempfile_suffix = '.cpp'
-    # error_stream = util.STREAM_BOTH  # errors are on stderr
+    cmd = ('/opt/ros/{}/lib/roslint/cpplint'.format(distro), '-')
+    regex = r'^.+:(?P<line>\d+):\s+(?P<message>.+)\s+\s\[(?P<code>.+)\]\s\[(?P<col>\d+)\]'
+    error_stream = STREAM_STDERR
     defaults = {
-        '--filter=,': '',
+        'selector': 'source.c++'
     }
-    comment_re = r'\s*/[/*]'
-    inline_settings = None
-    inline_overrides = 'filter'
-
-    def split_match(self, match):
-        """
-        Extract and return values from match.
-        We override this method so that the error:
-            No copyright message found.
-            You should have a line: "Copyright [year] <Copyright Owner>"  [legal/copyright] [5]
-        that appears on line 0 (converted to -1 because of line_col_base), can be displayed.
-        """
-
-        match, line, col, error, warning, message, near = super().split_match(match)
-
-        if line is not None and line == -1 and message:
-            line = 0
-
-        return match, line, col, error, warning, message, near

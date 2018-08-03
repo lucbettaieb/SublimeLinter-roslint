@@ -3,9 +3,10 @@ SublimeLinter-roslint
 
 This linter plugin for [SublimeLinter][docs] provides an interface to [roslint](http://wiki.ros.org/roslint). It will be used with files that have the “C++” syntax.
 
-This is for ROS Indigo currently.  You should be able to modify the indigo string inside things to make it work with Jade or other ROS releases. 
+This is tested in ROS Kinetic.
 
 This plugin is very much in development!  Please file issues and make pull requests!
+
 ## Installation
 SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter 3 is not installed, please follow the instructions [here][installation].
 
@@ -16,9 +17,9 @@ Before using this plugin, you must ensure that `roslint` is installed on your sy
 
 1. You should have ROS installed.
 
-2. If you don't already have roslint installed in /opt/ros/indigo/lib/roslint/, install it.
-   ```
-   sudo apt-get install ros-indigo-roslint
+2. If you don't already have roslint installed in /opt/ros/kinetic/lib/roslint/, install it.
+   ```bash
+   sudo apt-get install ros-kinetic-roslint
    ```
 ### Linter usage (this is an issue)
 Currently, roslint will only work if you launch sublime text from the command line.
@@ -60,7 +61,7 @@ If you would like to contribute enhancements or fixes, please do the following:
 Please note that modifications should follow these coding guidelines:
 
 - Indent is 4 spaces.
-- Code should pass flake8 and pep257 linters.
+- Code should pass flake8 linting.
 - Vertical whitespace helps readability, don’t be afraid to use it.
 - Please use descriptive variable names, no abbreviations unless they are very well known.
 
